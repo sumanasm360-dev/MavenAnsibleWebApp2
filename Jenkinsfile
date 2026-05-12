@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/sumanasm360-dev/MavenAnsibleWebApp2-CICD.git'
+                git branch: 'main', url: 'https://github.com/sumanasm360-dev/MavenAnsibleWebApp2.git'
             }
         }
 
