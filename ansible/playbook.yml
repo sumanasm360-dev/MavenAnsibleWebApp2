@@ -1,11 +1,12 @@
 - name: Deploy to Tomcat
   hosts: web
   become: yes
+
   tasks:
     - name: Copy WAR file to Tomcat
       copy:
-        src: "/var/snap/jenkins/5013/workspace/MavenAnsibleWebApp2-CICD/target/MavenAnsibleWebApp2.war"
-        dest: "/opt/tomcat/webapps/MavenAnsibleWebApp2.war"
+        src: "{{ lookup('env','WORKSPACE') }}/target/MavenAnsibleWebApp2.war"
+        dest: /opt/tomcat/webapps/MavenAnsibleWebApp2.war
         remote_src: no
 
     - name: Restart Tomcat
